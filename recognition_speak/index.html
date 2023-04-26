@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音声認識+音声合成</title>
+</head> 
+<body>
+    <h1>音声認識+音声合成 ※ベータ</h1>
+    <button onclick="recos()" id="start">認識開始</button>
+    <button onclick="recognition.stop()" id="stop" disabled>認識停止</button>
+    <h1>コマンド一覧</h1>
+    <div>
+        <ul>
+            <li>「サンプルを再生して」</li>
+            <li><s>「ピンをたくさん再生して」</s></li>
+        </ul>
+    </div>
+    <div>
+        <h2>履歴</h2>
+        <ol id="rire">
+        </ol>
+    </div>
+    <script>
+        const startbtn =document.getElementById("start");
+        const stopbtn = document.getElementById("stop");
+        const rire =document.getElementById("rire");
+
+        SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'ja-JP';
+        recognition.onresult = (el) => {
+            audioplay();
+            var ontext = el.results[0][0].transcript
+            console.log(ontext);
+            if (ontext == "サンプルを再生して") {
+                speak("これがサンプルです");
+            }else if (ontext == "ピンをたくさん 再生して"||ontext == "ピンをたくさん再生して") {
+                speak("再生できません")
+            }else{
+                var elm = 'あなたは' + ontext + 'と言いました'
+                speak(elm);
+            }
+            var new_element = document.createElement('li');
+            new_element.textContent = ontext;
+            rire.appendChild(new_element); //URLを表示
+
+            stopbtn.setAttribute("disabled", true);
+            startbtn.removeAttribute("disabled");
+        }
+        recognition.onend = () =>{
+            stopbtn.setAttribute("disabled", true);
+            startbtn.removeAttribute("disabled");
+            audioplay();
+        }
+        function recos() {
+            recognition.start();
+            audioplay();
+            stopbtn.removeAttribute("disabled");
+            startbtn.setAttribute("disabled",true);
+        }
+        function speak(ela) {
+            speechSynthesis.speak(new SpeechSynthesisUtterance(ela))
+        }
+        function audioplay() {
+            return 0;
+        }
+    </script>
+    <style>
+        html{
+            text-align: center;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</body>
+</html>
