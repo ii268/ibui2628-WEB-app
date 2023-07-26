@@ -1,19 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textarea</title>
 </head>
+
 <body>
-    <span>ただのテキストボックスです<br>保存機能などはありません<br></span>
-    <textarea></textarea>
-<style>
-   textarea{
-    width: 100%;    /* 横は100% */
-   height: 100vh;  /* 縦は100vh */
-   box-sizing: border-box; 
-   }
-</style>
+    <!--<span>ただのテキストボックスです<br>保存機能などはありません<br></span>-->
+    <div id="code">
+        <textarea id="text"></textarea>
+    </div>
+    <div id="mumu">
+        <label for="popupche" class="popopen">メニュー</label>
+        <span class="right">文字数:約<span id="textval">0</span>文字</span>
+    </div>
+    <input type="checkbox" id="popupche">
+    <div class="backg">
+        <div class="wind">
+            <label for="popupche" class="popclose" title="閉じる">×</label></a>
+            <h2>メニュー</h2>
+            <p>現在工事中</p>
+        </div>
+    </div>
+    <script>
+        const texta = document.querySelector("#text");
+        texta.addEventListener("input", function () {
+            const textn = texta.value
+            document.querySelector("#textval").innerText = textn.length;
+        })
+    </script>
+    <style>
+        .right{
+            margin: 0 20px;
+            display: block;
+            float: right;
+        }
+        #code {
+            padding: 0 3px;
+        }
+
+        body {
+            margin: 0;
+            bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            /* 横は100% */
+            height: 400vh;
+            /* 縦は100vh */
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        #mumu {
+            width: 100%;
+            padding: 10px 5px;
+            position: fixed;
+            /* ←絶対位置 */
+            bottom: 0;
+            background: grey;
+        }
+
+
+        .popopen {
+            margin: 5px;
+            padding: 5px 20px;
+            cursor: pointer;
+        }
+
+        .popclose {
+            color: red;
+            display: block;
+            float: right;
+            cursor: pointer;
+        }
+
+        #popupche:checked~.backg {
+            display: block;
+        }
+
+        .backg {
+            background: rgba(0, 0, 0, 0.4);
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .wind {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 90vw;
+            max-width: 360px;
+            padding: 20px;
+            height: 300px;
+            background: grey;
+            align-items: center;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </body>
+
 </html>
