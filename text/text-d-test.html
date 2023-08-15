@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <!--<span>ただのテキストボックスです<br>保存機能などはありません<br></span>-->
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="container-xxl">
+                <span class="h6">文字数:約<span id="textval">0</span>文字</span><br>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#redmodal">読み込み</button><br>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dlmodal" id="dldlly">ダウンロード</button><br>
+                <div class="modal fade" id="redmodal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="h5">ファイルの読み込み</h2>
+                            </div>
+                            <div class="modal-body">
+                                <input type="file" id="intxtfile" class="form-control">
+                                <div class="alert alert-danger" id="fileerror">
+                                    何かのエラーが発生しました
+                                </div>
+                                <div class="alert alert-danger" id="filesl">
+                                    ファイルを選択してください
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-bs-dismiss="modal">閉じる</button>
+                                <button class="btn btn-primary" id="instat">読み込み</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="dlmodal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <p>ダウンロードを開始しますか?</p>
+                                <input type="text" class="form-control" id="textfileneme" placeholder="ファイル名を決めれます(空の場合ランダム)">
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-bs-dismiss="modal">いいえ</button>
+                                <a class="btn btn-primary" id="dlbtunn" href="#" download="">はい</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <textarea id="text"></textarea>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    <script>
+        const texta = document.querySelector("#text");
+        const intxtfile = document.querySelector("#intxtfile")
+        const fileerror = document.querySelector("#fileerror");
+        const filesl = document.querySelector("#filesl");
+        const textfileneme = document.querySelector("#textfileneme");
+        const redmodal = new bootstrap.Modal(document.querySelector("#redmodal"));
+        texta.addEventListener("input", function () {
+            const textn = texta.value
+            document.querySelector("#textval").innerText = textn.length;
+        })
+        document.querySelector("#instat").addEventListener("click", function() {
+            if (intxtfile.value != "") {
+                const files = intxtfile.files[0];
+                const reader = new FileReader();
+                const filecode = "";
+                reader.readAsText(files);
+                reader.addEventListener("load", function (filecode) {
+                    filecode = filecode.currentTarget.result;
+                    texta.value = filecode;
+                    fileerror.style.display = "none";
+                    filesl.style.display = "none";
+                    redmodal.hide();
+                });
+                reader.addEventListener("error", function (elv) {
+                    fileerror.style.display = "block";
+                });
+            }else{
+                filesl.style.display = "block";
+            }
+        });
+
+        document.querySelector("#dldlly").addEventListener("click", function () {
+            const datatext = new Blob ([texta.value],{type:'text/plain'});
+            console.log(datatext.size);
+            document.getElementById("dlbtunn").href = window.URL.createObjectURL(datatext);
+        });
+
+        textfileneme.addEventListener("change", function() {
+            console.log(textfileneme.value);
+            document.getElementById("dlbtunn").download = textfileneme.value;
+        });
+    </script>
+    <style>
+        textarea {
+            width: 100%;
+            /* 横は100% */
+            height: 400vh;
+            /* 縦は100vh */
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        #fileerror ,#filesl{
+            display: none;
+        }
+    </style>
+</body>
+
+</html>
