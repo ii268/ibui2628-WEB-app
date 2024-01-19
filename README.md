@@ -35,3 +35,5 @@ ibui2628が作ったWEBアプリです。
 フォルダー:text
 
 [Textarea](https://ibui2628.github.io/ibui2628-WEB-app/text/ "Textareaを開きます")
+
+[Textarea (バージョン2)](https://ibui2628.github.io/ibui2628-WEB-app/text/text-d-test.html "Textareaバージョン2を開きます")
