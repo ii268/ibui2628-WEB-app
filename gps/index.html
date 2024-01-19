@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html lang="jp">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>GPS Meter</title>
 </head>
+
 <body>
-    <h1>GPSメータ</h1>
-    <button id="gbtn">情報取得開始</button><br>
-    <span id="dusa" style="color: red;">● off</span><br>
-    <label><input type="checkbox"id="cmode">ダークモード</label>
-    <h2>速度</h2>
-    <div class="box">
-        <p class="bigfont"><span id="speed_h">0</span> km/h</p>
-        <meter max="500" value="0" id="speed_m"></meter>
-        <p><span id="speed">0</span> m/s</p>
-    </div>
-    <h2>高度</h2>
-    <div class="box">
-        <p class="bigfont"><span id="altitude">0</span> m</p>
-        <meter max="1500" value="0" id="altitude_m"></meter>
-    </div>
-    <p>方角: <span id="heading">0</span></p>
-    <p>緯度: <span id="latitude">0</span> 経度: <span id="longitude">0</span> (精度: <span id="accuracy"></span>0m)</p>
-    <a href="" target="_blank" rel="noopener noreferrer" id="mapurl">mapで見る</a>
+    <header>
+        <spen href="./" id="moni_logo_atag">WEB APP</spen>
+        <a href="../" id="back_a">ホームへ戻る</a>
+        </nav>
+    </header>
+    <main>
+        <div class="con">
+            <div class="mainbox">
+                <h1>GPSメータ</h1>
+                <button id="gbtn" class="btn">情報取得開始</button><br>
+                <span id="dusa" style="color: red;">● off</span><br>
+                <h2>速度</h2>
+                <div class="box">
+                    <p class="bigfont"><span id="speed_h">0</span> km/h</p>
+                    <meter max="500" value="0" id="speed_m"></meter>
+                    <p><span id="speed">0</span> m/s</p>
+                </div>
+                <h2>高度</h2>
+                <div class="box">
+                    <p class="bigfont"><span id="altitude">0</span> m</p>
+                    <meter max="1500" value="0" id="altitude_m"></meter>
+                </div>
+                <p>方角: <span id="heading">0</span></p>
+                <p>緯度: <span id="latitude">0</span> 経度: <span id="longitude">0</span> (精度: <span
+                        id="accuracy"></span>0m)
+                </p>
+                <a href="" target="_blank" rel="noopener noreferrer" id="mapurl">mapで見る</a>
+            </div>
+        </div>
+    </main>
     <style>
-        .bigfont{
+        .bigfont {
             font-size: 4em;
             line-height: 0.01;
         }
-        .box{
-            border: #777 solid 3px;  
+
+        .box {
             padding: 3px;
         }
-        body{
-            text-align: center;
-            font-family: "Yu Gothic Medium", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, "MS PGothic", sans-serif;
-            background: #fff;
-            color: #111;
-        }
-        meter{
+
+        meter {
             width: 100%;
-        }
-        button{
-            width: 120px;
-            height: 40px;
-        }
-        .dalk{
-            background: #111;
-            color: #fff;
-        }
-        .allk_box{
-            border: #fff solid 3px;  
         }
     </style>
     <script>
-        const cmode = document.getElementById("cmode");
         const speed = document.getElementById("speed");
         const altitude = document.getElementById("altitude");
         const latitude = document.getElementById("latitude");
@@ -67,7 +65,7 @@
         const altitude_m = document.getElementById("altitude_m");
         const mapurl = document.getElementById("mapurl");
         const gbtn = document.getElementById("gbtn");
-        gbtn.addEventListener("click",testgps);
+        gbtn.addEventListener("click", testgps);
         const dusa = document.getElementById("dusa");
         const body = document.querySelector("body");
         var code = true;
@@ -78,15 +76,15 @@
             longitude.innerHTML = pos.coords.longitude;
             accuracy.innerHTML = gonu(pos.coords.accuracy);
             speed.innerHTML = gonu(pos.coords.speed);
-            speed_h.innerHTML = gonu(pos.coords.speed*3.6);
+            speed_h.innerHTML = gonu(pos.coords.speed * 3.6);
             altitude.innerHTML = gonu(pos.coords.altitude);
             heading.innerHTML = gonu(pos.coords.heading);
-            speed_m.setAttribute('value',pos.coords.speed);
-            altitude_m.setAttribute('value',pos.coords.altitude);
-            mapurl.setAttribute("href",'https://www.google.com/maps/search/?api=1&query=' + pos.coords.latitude+","+pos.coords.longitude);
+            speed_m.setAttribute('value', pos.coords.speed);
+            altitude_m.setAttribute('value', pos.coords.altitude);
+            mapurl.setAttribute("href", 'https://www.google.com/maps/search/?api=1&query=' + pos.coords.latitude + "," + pos.coords.longitude);
         }
         function error(error) {
-            alert("エラーが発生しました。\nエラーコード:"+error.code+"\n0:原因不明なエラー\n1:位置情報アクセス許可なし\n2:電波状況不安定\n3:タイムアウト");
+            alert("エラーが発生しました。\nエラーコード:" + error.code + "\n0:原因不明なエラー\n1:位置情報アクセス許可なし\n2:電波状況不安定\n3:タイムアウト");
             console.error(error.code);
             gbtn.innerHTML = "情報取得開始";
             dusa.innerHTML = '<span style="color:red;">● off</span>';
@@ -94,8 +92,8 @@
         }
         function testgps() {
             if (code) {
-                id = navigator.geolocation.watchPosition(gps,error,{"enableHighAccuracy":true});
-                console.log("id:"+id);
+                id = navigator.geolocation.watchPosition(gps, error, { "enableHighAccuracy": true });
+                console.log("id:" + id);
                 code = false;
                 gbtn.innerText = "情報取得終了";
                 dusa.innerHTML = '<span style="color:yellowgreen;">● on</span>';
@@ -105,20 +103,13 @@
                 gbtn.innerText = "情報取得開始";
                 dusa.innerHTML = '<span style="color:red;">● off</span>';
             }
-           
+
         }
         function gonu(v) {
-            return Math.round(v*10)/10;
+            return Math.round(v * 10) / 10;
         }
-        cmode.addEventListener("change" ,function() {
-            if(cmode.checked){
-                body.style.color = "#fff";
-                body.style.background = "#111";
-            }else{
-                body.style.color = "#111";
-                body.style.background = "#fff";
-            }
-        })
     </script>
+    <script src="../main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,168 @@
+main {
+    margin: 65px 8px 8px 8px;
+}
+
+input,
+textarea {
+    background: transparent;
+    border: 1px solid #55B3F3;
+    color: #000;
+    width: 100%;
+}
+
+input {
+    height: 25px;
+}
+
+body {
+    font-family: "Hiragino Kaku Gothic Pro", Meiryo, Osaka, "MS PGothic", sans-serif;
+    background: #fff;
+    margin: 0;
+}
+
+#output_h {
+    display: flex;
+    list-style: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background: #aaa;
+}
+
+.btn {
+    background: white;
+    border: solid 1px #90eee1;
+    padding: 15px 30px;
+}
+
+.tab_btn {
+    display: flex;
+    padding: 0;
+    margin: 0
+}
+
+.tab_itm {
+    list-style: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background: #aaa;
+}
+
+.act {
+    background: #90eee1;
+}
+
+.con {
+    display: table;
+    width: 100%;
+}
+
+.mainbox {
+    border: solid 2px #90eee1;
+    padding: 20px 30px;
+    background: #f3f6f6;
+    display: table-cell;
+}
+
+.output_box {
+    padding: 10px 20px;
+    display: table-cell;
+    background: #90eee1;
+    width: 30%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr {
+    border-bottom: 1px solid #BDBDBD;
+}
+
+td,
+th {
+    padding: 20px 30px;
+}
+
+td {
+    width: 80%;
+}
+
+a {
+    color: #000;
+}
+
+
+header {
+    background: #90eee1;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    padding: 5px 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+header #moni_logo_atag {
+    float: left;
+    font-size: 2.5em
+}
+
+#back_a {
+    display: block;
+    margin: 10px 25px;
+    float: left;
+}
+
+@media screen and (max-width: 480px) {
+
+    td,
+    th {
+        display: block;
+        padding: 10px 20px;
+        width: auto;
+    }
+
+    .con {
+        display: block;
+    }
+
+    .mainbox {
+        padding: 10px;
+        width: auto;
+        display: block;
+    }
+
+    .output_box {
+        padding: 10px;
+        display: block;
+        width: auto;
+    }
+
+    #back_a {
+        display: none;
+    }
+}
+
+/*
+#F3F6F6
+最初の色
+#90EEE1
+2番目の色
+#55B3F3
+3番目の色
+#6356E5
+4番目の色
+#212121
+一次テキスト
+#757575
+二次テキスト
+#BDBDBD
+区切り線の色
+#000000
+テキスト/アイコン
+
+https://www.palettelist.com/
+*/
