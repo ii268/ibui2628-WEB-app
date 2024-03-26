@@ -14,11 +14,11 @@ ibui2628が作ったWEBアプリです。
 
 フォルダー:gps
 
+#### NEW バージョン「GPS-Meter-V2」がリリースされました。
+
+詳細はGPSメータページをご覧ください
+
 [GPSメータ](https://ibui2628.github.io/ibui2628-WEB-app/gps/ "GPSメータを開きます")
-
-#### NEW バージョン「GPS-Meter-V2」
-
-[GPS-Meter-V2](../GPS-Meter-V2/)
 
 ### 音声認識+音声合成
 
