@@ -16,6 +16,10 @@ ibui2628が作ったWEBアプリです。
 
 [GPSメータ](https://ibui2628.github.io/ibui2628-WEB-app/gps/ "GPSメータを開きます")
 
+#### NEW バージョン「GPS-Meter-V2」
+
+[GPS-Meter-V2](../GPS-Meter-V2/)
+
 ### 音声認識+音声合成
 
 音声認識で認識した言葉を音声合成でそのまま返すアプリです。
