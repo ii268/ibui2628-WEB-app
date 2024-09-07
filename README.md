@@ -18,7 +18,7 @@ ibui2628が作ったWEBアプリです。
 
 詳細はGPSメータページをご覧ください
 
-[GPSメータ](https://ibui2628.github.io/ibui2628-WEB-app/gps/ "GPSメータを開きます")
+[GPSメータ](https://ii268.github.io/ibui2628-WEB-app/gps/ "GPSメータを開きます")
 
 ### 音声認識+音声合成
 
@@ -28,7 +28,7 @@ ibui2628が作ったWEBアプリです。
 
 フォルダー:recognition_speak
 
-[音声認識+音声合成](https://ibui2628.github.io/ibui2628-WEB-app/recognition_speak/ "音声認識+音声合成を開きます")
+[音声認識+音声合成](https://ii268.github.io/ibui2628-WEB-app/recognition_speak/ "音声認識+音声合成を開きます")
 
 ### Textarea
 
@@ -38,6 +38,6 @@ ibui2628が作ったWEBアプリです。
 
 フォルダー:text
 
-[Textarea](https://ibui2628.github.io/ibui2628-WEB-app/text/ "Textareaを開きます")
+[Textarea](https://ii268.github.io/ibui2628-WEB-app/text/ "Textareaを開きます")
 
-[Textarea (バージョン2)](https://ibui2628.github.io/ibui2628-WEB-app/text/text-d-test.html "Textareaバージョン2を開きます")
+[Textarea (バージョン2)](https://ii268.github.io/ibui2628-WEB-app/text/text-d-test.html "Textareaバージョン2を開きます")
