@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WEB Mero</title>
+</head>
+
+<body>
+    <div class="memu" id="memuid">
+        <div class="memu_title">
+            <h2>音の設定</h2>
+            <button class="mebtn"><img src="./img/x-circle.svg" alt="×"><p>閉じる</p></button>
+        </div>
+        <div class="miscinputer">
+            <label>再生音楽ファイル<br><input type="file" id="hasya_melody_file"
+                    accept="audio/mpeg,audio/wav,audio/ogg,audio/webm"></label>
+            <label>戸閉放送ファイル<br><input type="file" id="tojime_file"
+                    accept="audio/mpeg,audio/wav,audio/ogg,audio/webm"></label>
+        </div>
+        <div class="other_set">
+            <h3>その他</h3>
+            <label><input type="checkbox" id="Tmode">立川式</label><br>
+            <label><input type="checkbox" id="tojispeak">戸閉放送を音声合成で読み上げ(β)</label><span>→</span><label>放送内容:<input
+                    type="text" id="tospnai" disabled value="ドアがしまります ご注意ください"></label><br>
+        </div>
+    </div>
+    <div class="playbtns">
+        <div id="bsw215b3">
+            <div class="label"></div>
+            <div class="switchup">
+                <button id="on" title="ここを押すと音が鳴ります" class="miscswitch">ON</button><br>
+                <button id="off" title="ここを押すと音が止まります" class="miscswitch">OFF</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="me">
+        <p id="jyoutai"><span style="color: red;">停止中</span></p>
+        <button class="mebtn"><img src="./img/music-note-beamed.svg" alt="音"><p>音設定</p></button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="melody.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+:root {
+    --thema-accent: #7a4;
+    --thema-main: #a7d7c5;
+}
+
+body {
+    margin: 0;
+    font-family: "Hiragino Maru Gothic Pro", "Hiragino Kaku Gothic Pro", "HGMaruGothicMPRO", Meiryo, Osaka, "MS PGothic", sans-serif;
+}
+
+.me {
+    width: 100%;
+    position: fixed;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+}
+
+button{
+    cursor: pointer;
+}
+
+.miscinputer {
+    margin-top: 55px;
+}
+
+.miscinputer label {
+    display: block;
+    background: var(--thema-main);
+    box-shadow: 0 1px 7px black;
+    padding: 20px;
+    margin: 20px 10px;
+    border-radius: 90px;
+}
+
+.other_set {
+    background: var(--thema-main);
+    box-shadow: 0 1px 7px black;
+    margin: 20px 10px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.miscinputer label input::file-selector-button {
+    display: block;
+}
+
+.box {
+    border: #00053a solid 3px;
+    padding: 3px;
+}
+
+.playbtns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#jyoutai {
+    display: inline;
+}
+
+#bsw215b3 {
+    display: inline-block;
+    background: #9f987a;
+    box-shadow: 0 0 20px black;
+    padding: 50px;
+    border-radius: 15px;
+}
+
+#bsw215b3 .label {
+    width: 130px;
+    height: 40px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+#bsw215b3 .switchup {
+    display: inline-block;
+    padding: 20px;
+    border: 10px solid #c5bc97;
+    border-radius: 15px;
+}
+
+#bsw215b3 .miscswitch {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70px;
+    height: 70px;
+    border: 0;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 1.7em;
+}
+
+#bsw215b3 #on {
+    background: #222222;
+    box-shadow: 0 5px 0 black;
+}
+
+#bsw215b3 #off {
+    background: red;
+    box-shadow: 0 5px 0 #a00;
+    margin-top: 30px;
+}
+
+#bsw215b3 #off:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+#bsw215b3 #on:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+
+.memu {
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    position: fixed;
+    right: -150%;
+    z-index: 2;
+    background: #ccc;
+    transition: .2s;
+    overflow: scroll;
+}
+
+.memu_open {
+    right: 0;
+}
+
+.memu_title {
+    padding: 10px;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    background: #aaa;
+    border-top: solid 3px var(--thema-accent);
+    backdrop-filter: blur(4px);
+}
+
+.memu_title h2::before {
+    content: url('./music-note-beamed.svg');
+    padding-right: 5px;
+    display: inline;
+}
+
+.memu_title .mebtn {
+    margin-right: 10px;
+    top: 10px;
+}
+
+@media screen and (max-width:480px) {
+    .playbtns {
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .memu {
+        right: 0;
+        max-width: none;
+        max-height: 400px;
+        bottom: -100%;
+    }
+
+    .memu_open {
+        bottom: 0;
+    }
+
+    .memu,
+    .memu_title {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+}
+
+.mebtn {
+    position: absolute;
+    right: 10px;
+    top: -15px;
+    margin-right: 20px;
+    background: var(--thema-main);
+    border: 2px solid #333;
+    border-radius: 90px;
+    width: 50px;
+    aspect-ratio: 1/1;
+    box-shadow: 0 1px 10px black;
+}
+
+.mebtn p {
+    margin: 0;
+    font-size: 0.8em;
+}
