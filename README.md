@@ -46,7 +46,6 @@ ibui2628が作ったWEBアプリです。
 
 ### WEB Mero V2
 
-簡易発車メロディーシミュレーター 
-※音声ファイルは別途用意する必要があります
+このプログラムは以下に移転しました。
 
-[WEB Mero V2](https://ii268.github.io/ibui2628-WEB-app/web_mero_v2/ "WEB Mero V2を開く")
+[移転先のリポ](https://github.com/ii268/WEB-Mero "移転先へ")
